@@ -1,0 +1,6 @@
+[submodule "Aska/vendor/spdlog"]
+	path = Aska/vendor/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "Aska/vendor/GLFW"]
+	path = Aska/vendor/GLFW
+	url = https://github.com/4rksha/glfw
