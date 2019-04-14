@@ -1,9 +1,8 @@
 #pragma once
 
 #include "Aska/Window.h"
-#include "Aska/Log.h"
 
-#include <GLFW/glfw3.h>
+#include <GLFW/glfw3.h> 
 
 namespace Aska {
 

@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Aska/vendor/GLFW/include"
+IncludeDir["Glad"] = "Aska/vendor/Glad/include"
 
 include "Aska/vendor/GLFW"
+include "Aska/vendor/Glad"
 
 project "Aska"
 	location "Aska"
@@ -38,12 +40,15 @@ project "Aska"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
+
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -54,7 +59,8 @@ project "Aska"
 		defines
 		{
 			"ASKA_PLATFORM_WINDOWS",
-			"ASKA_BUILD_DLL"
+			"ASKA_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 		
 		postbuildcommands
@@ -64,16 +70,19 @@ project "Aska"
 
 	filter "configurations:Debug"
 		defines "ASKA_DEBUG"
+		buildoptions "/MDd"
 		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "ASKA_RELEASE"
+		buildoptions "/MD"
 		runtime "Release"
 		symbols "On"
 
 	filter "configurations:Dist"
 		defines "ASKA_DIST"
+		buildoptions "/MD"
 		runtime "Release"
 		symbols "On"
 
@@ -116,14 +125,17 @@ project "Sandbox"
 	filter "configurations:Debug"
 		defines "ASKA_DEBUG"
 		runtime "Debug"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "ASKA_RELEASE"
 		runtime "Release"
+		buildoptions "/MD"
 		symbols "On"
 
 	filter "configurations:Dist"
 		defines "ASKA_DIST"
 		runtime "Release"
+		buildoptions "/MD"
 		symbols "On"
