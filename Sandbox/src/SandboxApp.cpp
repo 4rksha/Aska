@@ -10,7 +10,6 @@ public:
 
 	void OnUpdate() override
 	{
-		ASKA_INFO("ExampleLayer::Update");
 	}
 
 	void OnEvent(Aska::Event& event) override
@@ -27,6 +26,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Aska::ImGuiLayer());
 	}
 	~Sandbox()
 	{
