@@ -7,3 +7,6 @@
 [submodule "Aska/vendor/imgui"]
 	path = Aska/vendor/imgui
 	url = https://github.com/4rksha/imgui
+[submodule "Aska/vendor/glm"]
+	path = Aska/vendor/glm
+	url = https://github.com/g-truc/glm

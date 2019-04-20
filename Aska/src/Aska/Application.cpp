@@ -7,6 +7,8 @@
 
 #include "Input.h"
 
+#include "glm/glm.hpp"
+
 namespace Aska {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -65,8 +67,6 @@ namespace Aska {
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
-			auto[x, y] = Input::GetMousePosition();
-			ASKA_CORE_TRACE("{0}, {1}", x, y);
 			m_Window->OnUpdate();
 		}
 	}

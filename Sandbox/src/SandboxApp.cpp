@@ -10,11 +10,13 @@ public:
 
 	void OnUpdate() override
 	{
+		if (Aska::Input::IsKeyPressed(ASKA_KEY_TAB))
+			ASKA_TRACE("Tab key is pressed");
 	}
 
 	void OnEvent(Aska::Event& event) override
 	{
-		ASKA_TRACE("{0}", event);
+		//ASKA_TRACE("{0}", event);
 	}
 };
 
